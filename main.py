@@ -6,10 +6,9 @@ def move_mouse():
     while True:
         current_position = mouse.position
 
-        mouse.position = (current_position[0] - 1, current_position[1])
+        mouse.position = (current_position[0] + 10, current_position[1] + 10)
         time.sleep(0.1)
-
-        mouse.position = (current_position[0], current_position[1])
+        mouse.position = current_position
         print(f"Mouse moved to: {mouse.position}")
         time.sleep(10)
 
