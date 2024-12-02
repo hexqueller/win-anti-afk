@@ -2,6 +2,9 @@ import time
 from pynput.keyboard import Key, Controller as KeyboardController
 from pynput.mouse import Controller as MouseController
 
+minutes = 2
+iteract_time = int(60 * minutes)
+
 def prevent_sleep():
     keyboard = KeyboardController()
     mouse = MouseController()
@@ -15,7 +18,7 @@ def prevent_sleep():
         keyboard.press(Key.ctrl_r)
         keyboard.release(Key.ctrl_r)
         
-        time.sleep(10)
+        time.sleep(iteract_time)
 
 if __name__ == "__main__":
     try:
