@@ -1,5 +1,5 @@
 import time
-from pynput.keyboard import Controller as KeyboardController
+from pynput.keyboard import Key, Controller as KeyboardController
 from pynput.mouse import Controller as MouseController
 
 def prevent_sleep():
@@ -12,8 +12,8 @@ def prevent_sleep():
         time.sleep(0.1)
         mouse.position = current_position
         
-        keyboard.press("ctrl")
-        keyboard.release("ctrl")
+        keyboard.press(Key.ctrl_r)
+        keyboard.release(Key.ctrl_r)
         
         time.sleep(10)
 
