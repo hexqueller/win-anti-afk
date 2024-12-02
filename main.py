@@ -1,19 +1,24 @@
 import time
-from pynput.mouse import Controller
+from pynput.keyboard import Controller as KeyboardController
+from pynput.mouse import Controller as MouseController
 
-def move_mouse():
-    mouse = Controller()
+def prevent_sleep():
+    keyboard = KeyboardController()
+    mouse = MouseController()
+    
     while True:
         current_position = mouse.position
-
         mouse.position = (current_position[0] + 10, current_position[1] + 10)
         time.sleep(0.1)
         mouse.position = current_position
-        print(f"Mouse moved to: {mouse.position}")
+        
+        keyboard.press("ctrl")
+        keyboard.release("ctrl")
+        
         time.sleep(10)
 
 if __name__ == "__main__":
     try:
-        move_mouse()
+        prevent_sleep()
     except KeyboardInterrupt:
         pass
